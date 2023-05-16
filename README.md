@@ -36,6 +36,7 @@ Ademas, cuenta con 3 puntos que al cliquearlos realizan una función:
 - Corazon: agrega o elimina de favoritos al personaje
 - Cruz: elimina al personaje, lo deja de renderizar
 - Info: redirige a una nueva ruta donde se muestra el detalle del personaje
+<hr>
 
 ## /favorite --> Favoritos
 Renderiza todos los personajes que anteriormente fueron seleccionados como favoritos.
