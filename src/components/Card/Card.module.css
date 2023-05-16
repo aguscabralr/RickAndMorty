@@ -2,28 +2,20 @@
   text-decoration: none;
 }
 
-.fijo {
+.fijo,
+.presentacion {
   position: relative;
   display: inline-block;
   text-align: center;
-  margin: 35px;
-  width: 250px;
-  height: 250px;
+  margin: 20px;
+  width: 225px;
+  height: 225px;
   background-size: cover;
   background-position: center;
   border-radius: 10px;
 }
 
 .presentacion {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  margin: 35px;
-  width: 250px;
-  height: 250px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
   animation: show 2s;
 }
 
