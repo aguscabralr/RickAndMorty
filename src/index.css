@@ -1,9 +1,0 @@
-body {
-  margin: 0;
-  background-image: url(./components/assets/fondo.png);
-  background-size: cover;
-}
-
-* {
-  font-family: 'Courier New', Courier, monospace;
-}
