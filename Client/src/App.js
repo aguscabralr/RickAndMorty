@@ -30,8 +30,7 @@ function App() {
 
   const onSearch = (id) => {
     if (id >= 1 && id <= 826) {
-      axios(`https://rickandmortyapi.com/api/character/${id}`)
-      .then(({ data }) => {
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
         if (data.name && !characters.find((char) => char.id === data.id)) {
           setCharacters((oldChars) => [...oldChars, data]);
         } else window.alert(`${data.name} ya esta renderizado`);

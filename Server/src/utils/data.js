@@ -1,4 +1,4 @@
-const characters = [
+module.exports = [
   {
     id: 1,
     name: "Rick Sanchez",
@@ -60,5 +60,3 @@ const characters = [
     image: "https://rickandmortyapi.com/api/character/avatar/5.jpeg",
   },
 ];
-
-module.exports = characters;
