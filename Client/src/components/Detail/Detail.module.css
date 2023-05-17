@@ -1,0 +1,36 @@
+.ventana {
+    height: 547px;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.info {
+    position: relative;
+    width: 50%;
+    color: white;
+    background-color: rgba(0,0,0,.7);
+}
+
+.text {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 30%;
+}
+
+.foto {
+    width: 50%;
+    margin: auto;
+}
+
+.foto img {
+    margin: auto;
+    width: 400px;
+    border: 10px double white;
+    border-radius: 100%;
+}
