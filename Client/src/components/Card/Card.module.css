@@ -22,10 +22,14 @@
 @keyframes show {
   0% {
     opacity: 0;
+    transform: scale(0);
     background-image: url("../assets/portal.png");
   }
   50% {
     background-image: url("../assets/portal.png");
+  }
+  80% {
+    transform: scale(.85);
   }
   100% {
     rotate: 1080deg;
@@ -136,7 +140,7 @@
 .presentacion:hover .propiedades,
 .fijo:hover .propiedades {
   color: white;
-  transform: translateY(50%);
+  transform: translateY(40%);
   opacity: 1;
   transition: all 0.7s ease;
 }

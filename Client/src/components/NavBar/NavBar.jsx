@@ -22,13 +22,21 @@ const NavBar = ({onSearch}) => {
     
     return(
         <div className={style.nav}>
-            <Link to='/home'className={style.a}><button className={style.boton} onClick={handleAnimate}>Animation</button></Link>
-            <Link to='/favorite' className={style.a}><button className={style.boton}>Favorites</button></Link>
-            <SearchBar onSearch={onSearch}/>
-            <Link to='/home' className={style.a}><button className={style.boton}>Home</button></Link>
-            <Link to='/about' className={style.a}><button className={style.boton}>About</button></Link>
-            <Link to='/' className={style.a}><button className={style.boton}>LogOut</button></Link>
-            <a href="https://www.soyhenry.com/" target="_blank" className={style.a}><img src={henry} className={style.boton}/></a>
+            <div className={style.conteHenry}>
+                <a href="https://www.soyhenry.com/" target="_blank" className={style.a}><img src={henry} className={style.henry}/></a>
+            </div>
+            <div className={style.conteSearch}>
+                <SearchBar onSearch={onSearch}/>
+            </div>
+            <div className={style.conteButton}>
+                <Link to='/about'><button className={style.boton}>About</button></Link>
+                <Link to='/home'><button className={style.boton}>Home</button></Link>
+                <Link to='/favorite'><button className={style.boton}>Favs</button></Link>
+                <Link to='/home'><button className={style.boton} onClick={handleAnimate}>Animate</button></Link>
+            </div>
+            <div className={style.conteLog}>
+                <Link to='/' className={style.a}><button className={style.logout}>LogOut</button></Link>
+            </div>
         </div>
     );
 };

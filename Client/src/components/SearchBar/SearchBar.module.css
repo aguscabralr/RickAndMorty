@@ -1,34 +1,39 @@
 .contenedor {
-  margin: 100px;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .random,
 .barra,
 .agregar {
   color: #fff;
-  border: 1px solid rgb(0, 0, 0);
   background-color: rgb(9, 9, 70);
 }
 
 .barra {
-  margin-left: 5px;
-  width: 100px;
-  height: 26px;
-  border-radius: 10px 0 0 10px;
+  right: 0;
+  width: 50%;
+  min-width: 80px;
+  height: 28px;
+  border: none;
+  border-radius: 0 10px 10px 0;
   text-align: center;
 }
 
-.random {
+.random,
+.agregar {
   width: 70px;
   height: 30px;
+}
+
+.random {
   border-radius: 10px;
 }
 
 .agregar {
-  width: 70px;
-  height: 30px;
-  border-radius: 0 10px 10px 0;
+  margin-left: 5px;
+  border-radius: 10px 0 0 10px;
 }
 
 .random:hover,
