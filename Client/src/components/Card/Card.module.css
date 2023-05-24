@@ -104,7 +104,7 @@
 }
 
 .propiedades {
-  transform: translateY(85%);
+  transform: translateY(35%);
   opacity: 0;
 }
 
@@ -140,7 +140,7 @@
 .presentacion:hover .propiedades,
 .fijo:hover .propiedades {
   color: white;
-  transform: translateY(40%);
+  transform: translateY(10%);
   opacity: 1;
   transition: all 0.7s ease;
 }

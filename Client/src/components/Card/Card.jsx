@@ -33,8 +33,9 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, addFav
          <Link to={`/detail/${id}`} className={style.link}>
             <article className={style.propiedades}>
                <h4>Status: {status}</h4>
-               <h4>Species: <br />{species}</h4>
                <h4>Gender: {gender}</h4>
+               <h4>Species: <br />{species}</h4>
+               <h6>ID: {id}</h6>
             </article>
          </Link>
       </div>
