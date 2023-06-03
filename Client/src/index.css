@@ -2,6 +2,7 @@ body {
   margin: 0;
   background-image: url(./components/assets/fondo.png);
   background-size: cover;
+  background-attachment: fixed;
   min-height: 617px;
 }
 

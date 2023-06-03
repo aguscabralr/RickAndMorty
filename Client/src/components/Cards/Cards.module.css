@@ -1,4 +1,70 @@
 .contenedor {
     text-align: center;
-    margin: 10px 0 auto;
+}
+
+.navClear {
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0,0,0,.7);
+    opacity: .5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clear {
+    width: 90px;
+    height: 30px;
+    color: #fff;
+    background-color: rgb(9, 9, 70);
+    border-radius: 10px;
+}
+
+.navClear:hover,
+.clear:hover {
+    opacity: 1;
+    transition: all 1s;
+}
+
+.waitConteiner {
+    width: 100%;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wait {
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: giratorio 60s linear infinite;
+}
+
+@keyframes giratorio {
+    0% {}
+    100% {rotate: 360deg;}
+}
+
+.load {
+    color: #fff;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: loading 5s steps(21) infinite;
+}
+
+@keyframes loading {
+    0% {width: 0;}
+    100% {width: 100%;}
+}
+
+.cardsConteiner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }

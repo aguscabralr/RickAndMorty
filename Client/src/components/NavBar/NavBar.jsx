@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { animate } from '../../Redux/actions';
 
-const NavBar = ({onSearch}) => {
+const NavBar = ({onSearch, logout}) => {
     const dispatch = useDispatch();
     const [animation, setAnimation] = useState(true);
 
@@ -35,7 +35,7 @@ const NavBar = ({onSearch}) => {
                 <Link to='/home'><button className={style.boton} onClick={handleAnimate}>Animate</button></Link>
             </div>
             <div className={style.conteLog}>
-                <Link to='/' className={style.a}><button className={style.logout}>LogOut</button></Link>
+                <Link to='/' className={style.a}><button className={style.logout} onClick={() => logout()}>LogOut</button></Link>
             </div>
         </div>
     );

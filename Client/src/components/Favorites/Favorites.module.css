@@ -14,3 +14,10 @@
     border-radius: 10px;
     border: none;
 }
+
+.cardsConteiner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

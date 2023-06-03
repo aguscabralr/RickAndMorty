@@ -1,4 +1,13 @@
 const server = require('./app');
 const PORT = 3001;
+const { database } = require('./db');
 
-server.listen(PORT, () => console.log(`Server raised in port: ${PORT}`));
+database.sync({ alter: true })
+.then(() => {
+    server.listen(PORT, () => {
+        console.log(`Listen server on port: ${PORT}`)
+    });
+})
+.catch((error) => {
+    console.log(error.message);
+});

@@ -12,7 +12,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 myFavorites: action.payload,
-                allCharacters: action.payload,
+                
             }
         case REMOVE_FAV:
             return {
@@ -41,7 +41,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 animation: action.payload,
             };
-            default: return {...state}
-        };
+        default: return {...state}
+    };
 };
 export default reducer;

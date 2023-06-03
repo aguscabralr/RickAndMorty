@@ -15,27 +15,25 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    access ? navigate('/home') : navigate('/');
+  }, [access]);
+
+
   const login = async (userData) => {
     try {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
       const { data } = await axios(URL + `?email=${email}&password=${password}`);
-      const { access } = data;
-      setAccess(access);
-      access && navigate('/home');
+      setAccess(data.access)
     } catch (error) {
-      console.log(error);
+      window.alert('Invalid email or password');
     }
   };
 
-  useEffect(() => {
-    !access && navigate('/');
-  }, [access]);
-
   const onSearch = async (id) => {
     try {
-      const response = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
-      const { data } = response;
+      const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
       if (data.name && !characters.find(char => char.id === data.id)) 
         setCharacters(oldChars => [...oldChars, data])
       else 
@@ -45,16 +43,24 @@ function App() {
     };
   };
 
+  const logout = async () => {
+    setAccess(false);
+  };
+
   const onClose = (id) => {
     setCharacters(characters.filter((char) => char.id !== id));
   };
 
+  const clear = () => {
+    setCharacters([]);
+  };
+
   return (
     <div className="App">
-      {location.pathname !== '/' && <NavBar onSearch={onSearch}/>}
+      {location.pathname !== '/' && <NavBar onSearch={onSearch} logout={logout}/>}
       <Routes>
-        <Route path="/" element={<Form login={login}/>} />
-        <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
+        <Route path="/" element={<Form login={login} />} />
+        <Route path="/home" element={<Cards characters={characters} onClose={onClose} clear={clear} />} />
         <Route path="/about" element={<About />} />
         <Route path="/favorite" element={<Favorites />} />
         <Route path="/detail/:id" element={<Detail />} />

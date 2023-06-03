@@ -28,12 +28,17 @@ const Form = ({login}) => {
         login(userData);
     };
 
+    const [sing, setSing] = useState(false);
+
+    const singin = () => {
+        sing 
+            ? setSing(false)
+            : setSing(true);
+    };
+
     return (
         <div className={style.contenedor}>
-            <div
-                className={style.portada}
-                style={{ backgroundImage: `url(${portada})` }}
-            ></div>
+            <div className={style.portada} style={{ backgroundImage: `url(${portada})` }}></div>
             <div className={style.form}>
                 <form onSubmit={handleSubmit}>
                     <h1>Rick & Morty Integration API</h1>
@@ -50,6 +55,27 @@ const Form = ({login}) => {
                     </div>
                     <hr />
                     <button type="submit">LogIn</button>
+                    {/* <button type="button" onClick={singin}>SignUp</button>
+                    {
+                        sing 
+                            ? <div className={style.singUpContainer}>
+                                <div>
+                                    <h1>Rick & Morty Registration</h1>
+                                    <hr />
+                                    <p>Email</p>
+                                    <input onChange={handleInputChange} type="text" name="email" value={userData.email} placeholder="Insert Email Address..." />
+                                    {error.email && <h6 style={{color: 'red'}}>{error.email}</h6>}
+                                </div>
+                                <div>
+                                    <p>Password</p>
+                                    <input onChange={handleInputChange} type="password" name="password" value={userData.password} placeholder="Insert Password..." />
+                                    {error.password && <h6 style={{color: 'red'}}>{error.password}</h6>}
+                                </div>
+                            </div>
+                            : <div>
+
+                            </div>
+                    } */}
                 </form>
             </div>
         </div>

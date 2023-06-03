@@ -1,5 +1,5 @@
 # Proyecto de Rick & Morty
-Proyecto de prueba creado con React y React-Redux
+Tecnologías --> React, Redux, Express, Sequelize, PostgreSQL
 
 ## Descripción
 
@@ -11,8 +11,8 @@ a partir de la barra de busqueda dentro de una API
 
 Entrada de la página, con un formulario a llenar con sus respectivas validaciones de errores para iniciar seción y entrar a la página.
 Actualmente solo cuenta con una sola forma de entrar:
-- Email: a@a.a
-- Password: a
+- Email: guest@gmail.com
+- Password: guest123
 <hr>
 
 ## /home --> Pagina Principal
