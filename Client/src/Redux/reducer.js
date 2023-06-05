@@ -1,4 +1,4 @@
-import { ADD_FAV, FILTER, ORDER, REMOVE_FAV, ANIMATE } from "./actions-types";
+import { ADD_FAV, REMOVE_FAV, ORDER, FILTER, SHOW_ALL_FAV, ANIMATE, } from "./actions-types";
 
 const initialState = {
     myFavorites: [],
@@ -6,42 +6,27 @@ const initialState = {
     animation: true,
 };
 
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
+
+const reducer = (state = initialState, { type, payload }) => {
+    switch (type) {
         case ADD_FAV:
-            return {
-                ...state,
-                myFavorites: action.payload,
-                
-            }
+            return { ...state, myFavorites: payload, allCharacters: payload, };
         case REMOVE_FAV:
-            return {
-                ...state,
-                myFavorites: action.payload,
-                allCharacters: action.payload,
-            }
-        case FILTER:
-            const filterAll = state.allCharacters.filter(character => character.gender === action.payload);
-            return {
-                ...state,
-                myFavorites: action.payload === 'allCharacters'
-                ? [...state.allCharacters]
-                : filterAll,
-            }
+            return { ...state, myFavorites: payload, allCharacters: payload, };
         case ORDER:
-            const allCharCopy = [...state.allCharacters];
             return {
-                ...state,
-                myFavorites: action.payload === 'A' 
-                ? allCharCopy.sort((a,b) => a.id - b.id)
-                : allCharCopy.sort((a,b) => b.id - a.id),
-            }
-        case ANIMATE:
-            return {
-                ...state,
-                animation: action.payload,
+                ...state, myFavorites: payload === 'A'
+                    ? [...state.allCharacters].sort((a, b) => a.id - b.id)
+                    : [...state.allCharacters].sort((a, b) => b.id - a.id),
             };
-        default: return {...state}
+        case FILTER:
+            return { ...state, myFavorites: state.allCharacters.filter(character => character.gender === payload), };
+        case SHOW_ALL_FAV:
+            return { ...state, myFavorites: state.allCharacters, };
+        case ANIMATE:
+            return { ...state, animation: payload, };
+        default: return { ...state };
     };
 };
+
 export default reducer;

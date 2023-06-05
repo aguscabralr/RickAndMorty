@@ -1,25 +1,23 @@
-import style from "./Favorites.module.css"
-import Card from "../Card/Card";
-import { useSelector } from "react-redux";
-import { filterCards, orderCards } from "../../Redux/actions";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import style from './Favorites.module.css'
+import Card from '../Card/Card';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { filterCards, orderCards, showAllFavs } from '../../Redux/actions';
 
 const Favorites = () => {
     const dispatch = useDispatch();
-    const { myFavorites } = useSelector(state => state)
+    const [aux, setAux] = useState(false);
+    const { myFavorites } = useSelector(state => state);
 
     const handleOrder = (event) => {
         dispatch(orderCards(event.target.value));
+        setAux(!aux);
     };
 
     const handleFilter = (event) => {
-        dispatch(filterCards(event.target.value));
+        if (event.target.value === "all") dispatch(showAllFavs(event.target.value));
+        else dispatch(filterCards(event.target.value));
     };
-
-    useEffect(() => {
-        console.log(myFavorites);
-    }, []);
 
     return (
         <div>
@@ -29,7 +27,7 @@ const Favorites = () => {
                     <option value="D">Descendente</option>
                 </select>
                 <select onChange={handleFilter} className={style.select}>
-                    <option value="allCharacters">All Characters</option>
+                    <option value="all">All Characters</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Genderless">Genderless</option>

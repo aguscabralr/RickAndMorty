@@ -10,9 +10,7 @@ a partir de la barra de busqueda dentro de una API
 ## / --> LogIn
 
 Entrada de la página, con un formulario a llenar con sus respectivas validaciones de errores para iniciar seción y entrar a la página.
-Actualmente solo cuenta con una sola forma de entrar:
-- Email: guest@gmail.com
-- Password: guest123
+Ahora ya que esta conectado a una base de datos, se puede realizar el registro de un usuario con su respectivo email y contraseña solo si cumple las validaciones.
 <hr>
 
 ## /home --> Pagina Principal
