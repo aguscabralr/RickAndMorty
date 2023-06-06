@@ -11,7 +11,7 @@ import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -34,9 +34,9 @@ function App() {
   const onSearch = async (id) => {
     try {
       const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
-      if (data.name && !characters.find(char => char.id === data.id)) 
+      if (data.name && !characters.find(char => char.id === data.id))
         setCharacters(oldChars => [...oldChars, data])
-      else 
+      else
         window.alert(`${data.name} ya esta renderizado`);
     } catch (error) {
       window.alert('No existe un personaje con ese ID');
@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname !== '/' && <NavBar onSearch={onSearch} logout={logout}/>}
+      {location.pathname !== '/' && <NavBar onSearch={onSearch} logout={logout} />}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
         <Route path="/home" element={<Cards characters={characters} onClose={onClose} clear={clear} />} />
