@@ -1,14 +1,18 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_DEPLOY } = process.env;
 const { usersMd, favoritesMd } = require('./models/index');
 
 // EJERCICIO 03
 // A la instancia de Sequelize le falta la URL de conexión. ¡Agrégala!
 // Recuerda pasarle la información de tu archivo '.env'.
 
-const database = new Sequelize(
-   `postgres:${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
+// const database = new Sequelize(
+//    `postgres:${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
+//    { logging: false, native: false }
+// );
+
+const database = new Sequelize( DB_DEPLOY,
    { logging: false, native: false }
 );
 
