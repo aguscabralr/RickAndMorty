@@ -1,6 +1,5 @@
 const server = require('./app');
-require('dotenv').config();
-const PORT = process.env.port || 3001;
+const PORT = 3001;
 const { database } = require('./db');
 
 database.sync({ force: true })
