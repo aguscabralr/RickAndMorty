@@ -1,7 +1,7 @@
 import SearchBar from "../SearchBar/SearchBar";
 import henry from "../assets/henry.png";
 import style from "./NavBar.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { animate } from '../../Redux/actions';
@@ -9,7 +9,7 @@ import { animate } from '../../Redux/actions';
 const NavBar = ({onSearch, logout}) => {
     const dispatch = useDispatch();
     const [animation, setAnimation] = useState(true);
-
+    
     const handleAnimate = () => {
         if (animation) {
             setAnimation(false);

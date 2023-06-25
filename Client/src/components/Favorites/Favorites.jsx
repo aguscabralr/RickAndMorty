@@ -1,28 +1,33 @@
 import style from './Favorites.module.css'
 import Card from '../Card/Card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterCards, orderCards, showAllFavs } from '../../Redux/actions';
+import { animate, filterCards, loadFav, orderCards } from '../../Redux/actions';
 
 const Favorites = () => {
     const dispatch = useDispatch();
-    const [aux, setAux] = useState(false);
-    const { myFavorites } = useSelector(state => state);
+
+    const { filterFavorites } = useSelector(state => state);
+    
+    useEffect(() => {
+        dispatch(loadFav());
+        dispatch(animate(false));
+        return () => dispatch(animate(true));
+    }, []);
 
     const handleOrder = (event) => {
         dispatch(orderCards(event.target.value));
-        setAux(!aux);
     };
 
     const handleFilter = (event) => {
-        if (event.target.value === "all") dispatch(showAllFavs(event.target.value));
-        else dispatch(filterCards(event.target.value));
+        dispatch(filterCards(event.target.value));
     };
 
     return (
         <div>
             <div className={style.navSelect}>
                 <select onChange={handleOrder} className={style.select}>
+                    <option value="O">Select Order</option>
                     <option value="A">Asecendente</option>
                     <option value="D">Descendente</option>
                 </select>
@@ -35,21 +40,24 @@ const Favorites = () => {
                 </select>
             </div>
             <div className={style.cardsConteiner}>
-            {myFavorites.map(fav => {
-                return (
-                    <Card
-                        key={fav.id}
-                        id={fav.id}
-                        name={fav.name}
-                        species={fav.species}
-                        status={fav.status}
-                        gender={fav.gender}
-                        image={fav.image}
-                        origin={fav.origin}
-                        onClose={fav.onClose}
-                    />
-                )
-            })}
+            {filterFavorites.length
+                ?   filterFavorites.map(fav => {
+                        return (
+                            <Card
+                            key={fav.id}
+                            id={fav.id}
+                            name={fav.name}
+                            species={fav.species}
+                            status={fav.status}
+                            gender={fav.gender}
+                            image={fav.image}
+                            origin={fav.origin}
+                            onClose={fav.onClose}
+                            />
+                        )
+                    })
+                : <div className={style.notFound}>No hay ningún personaje de ese género</div>
+            }
             </div>
         </div>
     );

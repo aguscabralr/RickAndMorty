@@ -26,6 +26,15 @@
     transition: all 1s;
 }
 
+.cardsConteiner {
+    min-height: calc(100vh - 110px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .waitConteiner {
     width: 100%;
     height: 88vh;
@@ -60,11 +69,4 @@
 @keyframes loading {
     0% {width: 0;}
     100% {width: 100%;}
-}
-
-.cardsConteiner {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
 }

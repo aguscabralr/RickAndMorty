@@ -1,32 +1,32 @@
 import style from "./Card.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { addFav, removeFav } from "../../Redux/actions";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
-const Card = ({id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites, animation}) => {
+const Card = ({ id, name, status, species, gender, origin, image, onClose }) => {
+   const dispatch = useDispatch();
+   const { myFavorites, animation } = useSelector(state => state); 
    const [isFav, setIsFav] = useState(false);
 
    const handleFavorite = () => {
       if (isFav) {
          setIsFav(false);
-         removeFav(id);
+         dispatch(removeFav(id));
       } else {
          setIsFav(true);
-         addFav({id, name, status, species, gender, origin, image, onClose});
+         dispatch(addFav({id, name, status, species, gender, origin, image, onClose}));
       };
    };
-
+   
    useEffect(() => {
-      myFavorites.forEach((fav) => {
-         if (fav.id === id) {
-            setIsFav(true);
-         }
+      myFavorites.forEach(fav => {
+         if (fav.id === Number(id)) setIsFav(true);
       });
    }, [myFavorites]);
 
    return (
-      <div className={animation ? style.presentacion : style.fijo} style={{backgroundImage: `url(${image})`}}>
+      <div className={animation ? style.presentacion : style.fijo } style={{backgroundImage: `url(${image})`}}>
          <button className={animation ? style.fav : style.favFijo} onClick={handleFavorite}>{isFav ? '❤️' : '🤍'}</button>
          <h3 className={animation ? style.nombre : style.nombreFijo}>{name}</h3>
          <button className={animation ? style.boton : style.botonFijo} onClick={() => {onClose(id)}}>X</button>
@@ -42,18 +42,4 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, addFav
    );
 };
 
-const mapStateToProps = (state) => {
-   return {
-      myFavorites: state.myFavorites,
-      animation: state.animation,
-   }
-};
-
-const mapDispatchToProps = (dispatch) => {
-   return {
-      addFav: (character) => dispatch(addFav(character)),
-      removeFav: (id) => dispatch(removeFav(id)),
-   };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+export default Card;

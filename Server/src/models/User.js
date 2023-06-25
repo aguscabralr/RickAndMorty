@@ -18,5 +18,9 @@ module.exports = (database) => {
          type: DataTypes.STRING,
          allowNull: false,
       },
+      active: {
+         type: DataTypes.BOOLEAN,
+         defaultValue: false,
+      },
    }, { timestamps: false });
 };
