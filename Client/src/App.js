@@ -17,6 +17,7 @@ function App() {
 
   useEffect(() => {
     access ? navigate('/home') : navigate('/');
+    // eslint-disable-next-line
   }, [access]);
 
 

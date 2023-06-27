@@ -34,7 +34,7 @@ const Detail = () => {
           </article>
         </div>
         <div className={style.foto}>
-          <img src={character.image && character.image}/>
+          <img src={character.image && character.image} alt={character.name && character.name} />
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@
 .navClear {
     width: 100%;
     height: 40px;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0, 0, 0, .7);
     opacity: .5;
     display: flex;
     justify-content: center;
@@ -55,7 +55,7 @@
 
 @keyframes giratorio {
     0% {}
-    100% {rotate: 360deg;}
+    100% { rotate: 360deg; }
 }
 
 .load {
@@ -67,6 +67,6 @@
 }
 
 @keyframes loading {
-    0% {width: 0;}
-    100% {width: 100%;}
+    0% { width: 0; }
+    100% { width: 100%; }
 }

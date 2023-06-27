@@ -19,21 +19,10 @@
 }
 
 @keyframes show {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-    background-image: url("../assets/portal.png");
-  }
-  50% {
-    background-image: url("../assets/portal.png");
-  }
-  80% {
-    transform: scale(.85);
-  }
-  100% {
-    rotate: 1080deg;
-    opacity: 1;
-  }
+  0% { opacity: 0; transform: scale(0); background-image: url("../assets/portal.png"); }
+  50% { background-image: url("../assets/portal.png"); }
+  80% { transform: scale(.85); }
+  100% { rotate: 1080deg; opacity: 1; }
 }
 
 .nombre,
@@ -68,18 +57,18 @@
 
 .boton,
 .botonFijo {
-    position: absolute;
-    right: 0;
-    background-color: rgb(200, 0, 0);
-    border-radius: 10px;
+  position: absolute;
+  right: 0;
+  background-color: rgb(200, 0, 0);
+  border-radius: 10px;
 }
 
 .fav,
 .favFijo {
-    position: absolute;
-    left: 0;
-    background-color: rgb(0, 0, 0, 0);
-    border: none;
+  position: absolute;
+  left: 0;
+  background-color: rgb(0, 0, 0, 0);
+  border: none;
 }
 
 .boton,
@@ -96,15 +85,9 @@
 }
 
 @keyframes molestos {
-  0% {
-    opacity: 0;
-  }
-  99% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  99% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .propiedades {
@@ -120,11 +103,7 @@
   height: 100%;
   left: 0;
   bottom: 0;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  background: linear-gradient( 0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 100% );
   opacity: 0;
   transition: all 0.9s ease;
 }

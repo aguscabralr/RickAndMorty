@@ -1,7 +1,7 @@
 import style from "./Card.module.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../../Redux/actions";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 const Card = ({ id, name, status, species, gender, origin, image, onClose }) => {
@@ -23,7 +23,7 @@ const Card = ({ id, name, status, species, gender, origin, image, onClose }) => 
       myFavorites.forEach(fav => {
          if (fav.id === Number(id)) setIsFav(true);
       });
-   }, [myFavorites]);
+   }, [myFavorites, id]);
 
    return (
       <div className={animation ? style.presentacion : style.fijo } style={{backgroundImage: `url(${image})`}}>
